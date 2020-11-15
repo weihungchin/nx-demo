@@ -22,5 +22,13 @@
       }
     }
   },
-  "projects": {}
+  "projects": {
+    "demo-app": {
+      "tags": []
+    },
+    "demo-app-e2e": {
+      "tags": [],
+      "implicitDependencies": ["demo-app"]
+    }
+  }
 }

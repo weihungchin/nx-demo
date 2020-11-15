@@ -4,6 +4,19 @@ This project was generated using [Nx](https://nx.dev).
 
 <p align="center"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>
 
+
+## How is this project generated ?
+1. `npx create-nx-workspace demo`  // empty project option
+
+2. `npm install --save @nrwl/angular`
+
+3. `nx generate @nrwl/angular:application demo-app`
+
+4. To serve the demo-app, run `nx run demo-app:serve`
+
+
+
+
 🔎 **Nx is a set of Extensible Dev Tools for Monorepos.**
 
 ## Adding capabilities to your workspace
