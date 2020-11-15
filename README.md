@@ -5,6 +5,9 @@ This project was generated using [Nx](https://nx.dev).
 <p align="center"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>
 
 
+🔎 **Nx is a set of Extensible Dev Tools for Monorepos.**
+
+
 ## How is this project generated ?
 1. `npx create-nx-workspace demo`  // empty project option
 
@@ -14,10 +17,12 @@ This project was generated using [Nx](https://nx.dev).
 
 4. To serve the demo-app, run `nx run demo-app:serve`
 
+5. To build the demo-app, run `nx run demo-app:build`
 
+6. To generate a new libaray with name 'shared-ui' under demo-app, run `nx generate @nrwl/angular:library --name=shared-ui --style=scss --directory=demo-app --buildable`
 
+7. To add a component (named header) into the lib created in step 6, run `nx generate @schematics/angular:component --name=header --project=demo-app-shared-ui --style=scss`
 
-🔎 **Nx is a set of Extensible Dev Tools for Monorepos.**
 
 ## Adding capabilities to your workspace
 

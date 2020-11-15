@@ -122,6 +122,48 @@
           }
         }
       }
+    },
+    "demo-app-shared-ui": {
+      "projectType": "library",
+      "root": "libs/demo-app/shared-ui",
+      "sourceRoot": "libs/demo-app/shared-ui/src",
+      "prefix": "demo",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "options": {
+            "tsConfig": "libs/demo-app/shared-ui/tsconfig.lib.json",
+            "project": "libs/demo-app/shared-ui/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/demo-app/shared-ui/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/demo-app/shared-ui/tsconfig.lib.json",
+              "libs/demo-app/shared-ui/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/demo-app/shared-ui/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/demo-app/shared-ui/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
     }
   },
   "cli": {

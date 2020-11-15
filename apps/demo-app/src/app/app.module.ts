@@ -1,3 +1,4 @@
+import { DemoAppSharedUiModule } from '@demo/demo-app/shared-ui';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -9,6 +10,7 @@ import { RouterModule } from '@angular/router';
   imports: [
     BrowserModule,
     RouterModule.forRoot([], { initialNavigation: 'enabled' }),
+    DemoAppSharedUiModule
   ],
   providers: [],
   bootstrap: [AppComponent],
