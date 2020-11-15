@@ -24,6 +24,13 @@ This project was generated using [Nx](https://nx.dev).
 7. To add a component (named header) into the lib created in step 6, run `nx generate @schematics/angular:component --name=header --project=demo-app-shared-ui --style=scss`
 
 
+8. Adding a nestJS dependency, `npm install --save @nrwl/nest`
+
+9. Adding a nestJS project (named api) that is accessible for demo-app: `nx generate @nrwl/nest:app api --frontendProject demo-app`
+
+10. Add an interface lib that can be shared by frontend and backend (nestJS), `nx g @nrwl/workspace:lib util-interface`
+
+
 ## Adding capabilities to your workspace
 
 Nx supports many plugins which add capabilities for developing different types of applications and different tools.

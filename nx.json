@@ -32,6 +32,12 @@
     },
     "demo-app-shared-ui": {
       "tags": []
+    },
+    "api": {
+      "tags": []
+    },
+    "util-interface": {
+      "tags": []
     }
   }
 }
