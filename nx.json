@@ -32,13 +32,6 @@
     },
     "demo-app-shared-ui": {
       "tags": []
-    },
-    "angular-socket": {
-      "tags": []
-    },
-    "angular-socket-e2e": {
-      "tags": [],
-      "implicitDependencies": ["angular-socket"]
     }
   }
 }
