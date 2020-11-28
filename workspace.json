@@ -236,6 +236,179 @@
           }
         }
       }
+    },
+    "angular-socket": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/angular-socket",
+      "sourceRoot": "apps/angular-socket/src",
+      "prefix": "demo",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/angular-socket",
+            "index": "apps/angular-socket/src/index.html",
+            "main": "apps/angular-socket/src/main.ts",
+            "polyfills": "apps/angular-socket/src/polyfills.ts",
+            "tsConfig": "apps/angular-socket/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/angular-socket/src/favicon.ico",
+              "apps/angular-socket/src/assets"
+            ],
+            "styles": ["apps/angular-socket/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/angular-socket/src/environments/environment.ts",
+                  "with": "apps/angular-socket/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "angular-socket:build",
+            "proxyConfig": "apps/angular-socket/proxy.conf.json"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "angular-socket:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "angular-socket:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/angular-socket/tsconfig.app.json",
+              "apps/angular-socket/tsconfig.spec.json",
+              "apps/angular-socket/tsconfig.editor.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/angular-socket/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/angular-socket/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "angular-socket-e2e": {
+      "root": "apps/angular-socket-e2e",
+      "sourceRoot": "apps/angular-socket-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/angular-socket-e2e/cypress.json",
+            "tsConfig": "apps/angular-socket-e2e/tsconfig.e2e.json",
+            "devServerTarget": "angular-socket:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "angular-socket:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["apps/angular-socket-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/angular-socket-e2e/**/*"]
+          }
+        }
+      }
+    },
+    "node-socket": {
+      "root": "apps/node-socket",
+      "sourceRoot": "apps/node-socket/src",
+      "projectType": "application",
+      "prefix": "node-socket",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/node:build",
+          "options": {
+            "outputPath": "dist/apps/node-socket",
+            "main": "apps/node-socket/src/main.ts",
+            "tsConfig": "apps/node-socket/tsconfig.app.json",
+            "assets": ["apps/node-socket/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/node-socket/src/environments/environment.ts",
+                  "with": "apps/node-socket/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "node-socket:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/node-socket/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/node-socket/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {

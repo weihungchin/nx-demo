@@ -38,6 +38,16 @@
     },
     "util-interface": {
       "tags": []
+    },
+    "angular-socket": {
+      "tags": []
+    },
+    "angular-socket-e2e": {
+      "tags": [],
+      "implicitDependencies": ["angular-socket"]
+    },
+    "node-socket": {
+      "tags": []
     }
   }
 }
